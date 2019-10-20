@@ -7,7 +7,7 @@ import { IShow } from '../../interfaces/ishow';
   styleUrls: ['./schedule-item.component.scss']
 })
 export class ScheduleItemComponent implements OnInit {
-  @Input() scheduleItem:IShow;
+  @Input() scheduleItem;
   
   constructor() {
 
