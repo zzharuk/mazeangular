@@ -16,18 +16,18 @@ export class ShowService {
     );
   }
   getShow(id:number): Promise<any> {
-    return fetch(`http://api.tvmaze.com/shows/${id}`)
+    return fetch(`https://api.tvmaze.com/shows/${id}`)
       .then(r => r.json())
       .then(show => show);
   }
   getSeasons(id:number): Promise<any> {
-    return fetch(`http://api.tvmaze.com/shows/${id}/seasons`)
+    return fetch(`https://api.tvmaze.com/shows/${id}/seasons`)
       .then(r => r.json())
       .then(show => show);
   }
   // http://api.tvmaze.com/seasons/18326/episodes
   getEpisodes(id): Promise<any> { 
-    return fetch(`http://api.tvmaze.com/seasons/${id}/episodes`)
+    return fetch(`https://api.tvmaze.com/seasons/${id}/episodes`)
       .then(r => r.json())
       .then(show => show);
   }
