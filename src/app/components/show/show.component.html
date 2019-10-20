@@ -1,0 +1,42 @@
+<div class="container">
+	<div *ngIf="show">
+    <h2 class="font-weight-light">{{show.name}}</h2>
+		<hr>
+    <div class="row">
+        <div class="col-lg-8">
+					<div class=" d-flex flex-row">
+							<img src="{{show.image.medium}}" alt="" class="img-fluid rounded">
+							<div class="desc" [innerHTML]="show.summary" class="ml-4"></div>
+							<ul class="list-inline list-unstyled">
+								<li class="list-inline-item" *ngFor="let genre of show.geners">{{genre}}</li>
+							</ul>
+					</div>
+					<hr>
+					<div *ngIf="seasons">
+						<div class="list-inline list-unstyled"  >
+							<a [routerLink]="['season', season.id]"
+								 [routerLinkActive]="['active']"
+								 class="list-inline-item btn btn-outline-info m-1"  
+								 *ngFor="let season of seasons">Season {{season.number}}</a>
+						</div>
+						<router-outlet></router-outlet>
+					</div>
+        </div>
+        <div class="col-lg-4">
+					<div class="card bg-light mb-3 shadow-sm" >
+						<div class="card-body">
+							<h5 class="card-title">Show Info</h5>
+							<ul class="list-unstyled" >
+								<li><span class="font-weight-bold">Network: </span>{{show.network.name}}</li>
+								<li><span class="font-weight-bold">Schedule: </span>{{ show.schedule | json }}</li>
+								<li><span class="font-weight-bold">Status: </span>{{ show.status }}</li>
+								<li><span class="font-weight-bold">Type: </span>{{ show.type }}</li>
+								<li><span class="font-weight-bold">Official site: </span><a target="_blank" href="{{ show.officialSite }}">{{ show.officialSite }}</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+    </div>
+  </div>
+</div>
+

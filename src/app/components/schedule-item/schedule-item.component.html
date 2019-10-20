@@ -1,0 +1,11 @@
+<!-- <div class="card mb-4 shadow-sm"> -->
+	<img class="img-fluid card-img-top" src="{{ scheduleItem.show.image?.medium || ''}}" width="100%" height="225">
+	<div class="airtime-container">
+		<div class="airtime-container-date">{{ scheduleItem.airdate | date: 'MMM d' }}</div>
+		<div class="airtime-container-time">{{ scheduleItem.airtime }}</div>
+	</div>
+	<div class="card-body">
+			<a [routerLink]="['show', scheduleItem.show.id]" class="d-block schedule-item-list-title mt-0 mb-1">{{scheduleItem.show.name}}</a>
+			<a [routerLink]="['show', scheduleItem.show.id,'episode', scheduleItem.id]" class="d-block schedule-item-list-desc">{{scheduleItem.name}}</a>
+	</div>
+<!-- </div> -->

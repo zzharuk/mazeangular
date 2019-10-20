@@ -1,0 +1,28 @@
+a {
+    text-decoration: none;
+    color: #000000;
+    &:hover{
+        color: darken(#000000, 50%);
+    }
+}
+.schedule-item-list-network {
+    font-size: 13px;
+}
+.schedule-item-list-title {
+    font-size: 17px;
+}
+.schedule-item-list-desc {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.airtime-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    font-weight: normal;
+    color: #fff;
+    font-size: 14px;
+    background-color: green;
+}

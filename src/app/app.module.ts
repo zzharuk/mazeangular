@@ -3,10 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ScheduleItemComponent } from './components/schedule-item/schedule-item.component';
+import { EpisodeComponent } from './components/episode/episode.component';
+import { ShowComponent } from './components/show/show.component';
+import { HomeComponent } from './components/home/home.component';
+import { PopularListComponent } from './components/popular-list/popular-list.component';
+import { PopularItemComponent } from './components/popular-item/popular-item.component';
+import { SeasonComponent } from './components/season/season.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ScheduleItemComponent,
+    EpisodeComponent,
+    ShowComponent,
+    HomeComponent,
+    PopularListComponent,
+    PopularItemComponent,
+    SeasonComponent
   ],
   imports: [
     BrowserModule,

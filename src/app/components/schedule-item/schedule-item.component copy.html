@@ -1,0 +1,10 @@
+<li class="row">
+    <div class="col-2">
+			 <a [routerLink]="['network', scheduleItem.show.network.id]" [ngClass]="['schedule-item-list-network']">{{scheduleItem.show.network.name}}</a>
+			 <div><small>{{scheduleItem.airtime}}</small></div>
+    </div>
+    <div class="col">
+				<a [routerLink]="['show', scheduleItem.show.id]" class="d-block schedule-item-list-title mt-0 mb-1">{{scheduleItem.show.name}}</a>
+				<a [routerLink]="['episode', scheduleItem.id]" class="d-block schedule-item-list-desc">{{scheduleItem.name}}</a>
+    </div>
+</li>
