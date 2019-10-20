@@ -1,1 +1,9 @@
-<p>episode works!!!!</p>
+<div *ngIf="episode">
+  <h4>{{ episode.name }}</h4>
+  <hr>
+  <span>Airdate: {{ episode.airdate }}</span>
+  <hr>
+  <img *ngIf='episode.image' src="{{ episode.image.medium }}">
+  <p *ngIf='episode.summary' [innerHTML]="episode.summary"></p>
+</div>
+

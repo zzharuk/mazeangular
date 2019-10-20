@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { ShowService } from '../../services/show.service';
 
 @Component({
   selector: 'app-episode',
@@ -6,10 +10,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./episode.component.scss']
 })
 export class EpisodeComponent implements OnInit {
-
-  constructor() { }
+  episodeID:number;
+  episode:{};
+  constructor(
+    private ShowService: ShowService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.paramMap.pipe(
+      switchMap((params) => {
+        return of(params.get('id'))
+      })
+    ).subscribe(d => {
+      this.episodeID = +d;
+      this.ShowService.getEpisode(this.episodeID).then(resp => {
+        this.episode = resp;
+      });
+    });
   }
 
 }

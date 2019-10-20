@@ -13,17 +13,21 @@ export class SeasonComponent implements OnInit {
  season:any;
  id;
  episodesList: [];
+  showID:number;
 
   constructor( 
     private ShowService: ShowService,
     private route: ActivatedRoute
-    ) { }
+    ) { 
+    }
 
   ngOnInit() {
+    
     this.route.paramMap.pipe(
-      switchMap((params) =>
-        of(params.get('id'))
-      )
+      switchMap((params) =>{
+      console.log(params)
+        return of(params.get('id'))
+      })
     ).subscribe(d => {
       this.id = d;
         this.ShowService.getEpisodes(this.id).then(resp => {

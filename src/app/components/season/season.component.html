@@ -1,10 +1,17 @@
-<div class="list-group">
-	<a 
-		*ngFor="let episode of episodesList; index as i" 
-		class="list-group-item list-group-item-action" 
-		id="list-{{episode.id}}-list" 
-		data-toggle="list" 
-		
-		role="tab" 
-		>#{{i+1}} - {{episode.name}}</a>
+<div class="row">
+	<div class="col-lg-5">
+		<div class="list-group">
+			<a *ngFor="let episode of episodesList; index as i" 
+				class="list-group-item list-group-item-action"
+				id="list-{{episode.id}}-list" 
+				data-toggle="list" 
+				[routerLink]="['episode', episode.id]"
+				[routerLinkActive]="['active']"
+				>#{{i+1}} - {{episode.name}}</a>
+		</div>
+	</div>
+	<div class="col-lg-7">
+		<router-outlet></router-outlet>
+	</div>
 </div>
+

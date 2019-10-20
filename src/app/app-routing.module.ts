@@ -21,12 +21,14 @@ const routes: Routes = [
     // pathMatch: 'full',
     children:[
       {
-        path: "episode/:id",
-        component: EpisodeComponent,
-      },
-      {
         path: "season/:id",
         component: SeasonComponent,
+        children: [
+          {
+            path: "episode/:id",
+            component: EpisodeComponent,
+          },
+        ]
       },
     ]
   },

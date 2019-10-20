@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { Subscription, Observable, from,of } from 'rxjs';
+import { of } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { ShowService } from '../../services/show.service';
 
@@ -37,6 +37,10 @@ export class ShowComponent implements OnInit {
       })
       
     });
+  }
+
+  navigateEnd(){
+    
   }
 
 }

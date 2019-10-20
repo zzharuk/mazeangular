@@ -5,7 +5,14 @@
 		<div class="airtime-container-time">{{ scheduleItem.airtime }}</div>
 	</div>
 	<div class="card-body">
-			<a [routerLink]="['show', scheduleItem.show.id]" class="d-block schedule-item-list-title mt-0 mb-1">{{scheduleItem.show.name}}</a>
-			<a [routerLink]="['show', scheduleItem.show.id,'episode', scheduleItem.id]" class="d-block schedule-item-list-desc">{{scheduleItem.name}}</a>
+			<a 
+				[routerLink]="['show', scheduleItem.show.id]" 
+				[routerLinkActive]="['active']" 
+				class="d-block schedule-item-list-title mt-0 mb-1"
+				>{{scheduleItem.show.name}}</a>
+			<a [routerLink]="['show', scheduleItem.show.id, 'season',scheduleItem.season, 'episode', scheduleItem.id]"
+				[routerLinkActiveOptions]="{ exact: true }"
+				[routerLinkActive]="['active']"
+			  class="d-block schedule-item-list-desc">{{scheduleItem.name}}</a>
 	</div>
 <!-- </div> -->
