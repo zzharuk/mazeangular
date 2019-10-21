@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PopularListComponent } from './components/popular-list/popular-list.component';
 import { PopularItemComponent } from './components/popular-item/popular-item.component';
 import { SeasonComponent } from './components/season/season.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SeasonComponent } from './components/season/season.component';
     HomeComponent,
     PopularListComponent,
     PopularItemComponent,
-    SeasonComponent
+    SeasonComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

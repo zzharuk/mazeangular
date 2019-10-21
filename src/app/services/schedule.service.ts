@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { of } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +8,12 @@ import { of } from 'rxjs';
 export class ScheduleService {
 
   constructor() { }
-  getSchedules(): Promise<any> {
-    return fetch(`https://api.tvmaze.com/schedule/`)
+  getSchedules(): Observable<[]> {
+    return from(fetch(`https://api.tvmaze.com/schedule/`)
       .then(r => r.json())
-      .then(schedule => schedule.map((item) => {
-        return item;
-      })
+      .then(schedule => schedule)
+      ).pipe(
+      catchError(err => of([]))
     );
   }
 }

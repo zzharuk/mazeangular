@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IShow } from '../../interfaces/ishow';
+import { IScheduleCard } from '../../interfaces/ishow';
 
 @Component({
   selector: 'app-schedule-item',
@@ -7,7 +7,7 @@ import { IShow } from '../../interfaces/ishow';
   styleUrls: ['./schedule-item.component.scss']
 })
 export class ScheduleItemComponent implements OnInit {
-  @Input() scheduleItem;
+  @Input() scheduleItem: IScheduleCard;
   
   constructor() {
 

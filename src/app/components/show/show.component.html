@@ -4,9 +4,9 @@
 		<hr>
     <div class="row">
         <div class="col-lg-8">
-					<div class=" d-flex flex-row">
-							<img src="{{show.image.medium}}" alt="" class="img-fluid rounded">
-							<div class="desc" [innerHTML]="show.summary" class="ml-4"></div>
+					<div class="">
+							<img src="{{show.image.medium}}" alt="" class="float-left rounded mr-3">
+							<div class="desc" [innerHTML]="show.summary" class=""></div>
 							<ul class="list-inline list-unstyled">
 								<li class="list-inline-item" *ngFor="let genre of show.geners">{{genre}}</li>
 							</ul>

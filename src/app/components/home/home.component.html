@@ -1,12 +1,15 @@
-<h1 class="text-center my-4">MazeAngularApp</h1>
-  
-    <!--  -->
-  <div class="col-lg-8 mx-auto row">
+
+<div class="col-lg-8 mx-auto">
+	<h3 class="h3 my-2">{{title}}</h3>
+	<div class="row">
 		<app-schedule-item 
-			
-			*ngFor="let schedule of schedules"  
-			[scheduleItem]="schedule" 
+			*ngFor="let schedule of schedules" 
+			[scheduleItem]="schedule"
 			[ngClass]="['col-lg-2 p-0 mb-4 card mx-auto shadow-sm']"
 		></app-schedule-item>
-  </div>
+	</div>	
+</div>
+<div class="col-lg-4 mx-auto">
+
+</div>
   

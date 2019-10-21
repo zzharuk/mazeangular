@@ -1,14 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
-
+<app-navbar [title]="title"></app-navbar>
 <div class="container-fluid">
-  <ul class="nav justify-content-center">
-    <li class="nav-item">
-      <a  class="nav-link " 
-      [routerLink]="['']"
-      [routerLinkActive]="['active']"
-      >Main</a>
-    </li>
-  </ul>
+  <router-outlet ></router-outlet>
 </div>
 
-<router-outlet></router-outlet>

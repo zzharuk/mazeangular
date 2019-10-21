@@ -13,7 +13,8 @@ export class SeasonComponent implements OnInit {
  season:any;
  id:number;
  season_num;
- episodesList: [];
+allEpisodesList;
+seasonEpisodes;
   showID:number;
 
   constructor( 
@@ -24,18 +25,23 @@ export class SeasonComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.season_num = +params.id;
-      this.route.parent.params.subscribe(params => {
-        this.id = +params.id;
-        this.ShowService.getEpisodes(this.id).then(resp => {
-          this.episodesList = resp.filter((ep) => {
+
+    this.route.parent.params.subscribe(params => {
+      this.id = +params.id;
+      this.ShowService.getEpisodes(this.id).then(resp => { 
+        this.allEpisodesList = resp;
+        return resp;
+      }).then(resp => {
+        this.route.params.subscribe(params => {
+          this.season_num = +params.id;
+          this.seasonEpisodes = this.allEpisodesList.filter((ep) => {
             return ep.season === this.season_num;
           });
-        })
-      });
-      
-    });
+
+        });
+      })
+     });
+   
     
   }
 

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { AuthService } from './auth.service';
+import { ScheduleService } from './services/schedule.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,8 +11,16 @@ import { AuthService } from './auth.service';
 
 export class AppComponent {
   title = 'mazeangular';
-
-  constructor(private auth: AuthService) { }
+  // @Output() schedules ;
+  schedules;
+  constructor(
+    private auth: AuthService,
+    private ScheduleService: ScheduleService,
+    ) { 
+      this.ScheduleService.getSchedules().subscribe(v => {
+        this.schedules = v;
+      });
+     }
 
 
   ngOnInit() {

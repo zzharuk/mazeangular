@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ScheduleService } from '../../services/schedule.service';
+import { FormBuilder } from '@angular/forms';
 import { ShowService } from '../../services/show.service';
-import { IShow } from '../../interfaces/ishow'
+import { IShow, IScheduleCard } from '../../interfaces/ishow'
 import { Observable, from } from 'rxjs';
- 
-
 
 @Component({
   selector: 'app-home',
@@ -12,22 +11,18 @@ import { Observable, from } from 'rxjs';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  schedules:any;
   
+  title = "Schrdule";
+  schedules;
   constructor(
     private ScheduleService: ScheduleService,
   ) {
-    this.ScheduleService.getSchedules().then((resp) => {
-      this.schedules = resp.sort((a,b)=>{
-        return a.airstamp - b.airstamp;
-      });
-    });
-    
-    
    }
 
   ngOnInit() {
-   
+    // console.log(this.schedules);
+    this.ScheduleService.getSchedules().subscribe(
+      v => this.schedules = v
+    );
   }
-
 }

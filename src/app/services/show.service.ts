@@ -7,8 +7,8 @@ export class ShowService {
 
   constructor() {}
 
-  getShowList(): Promise<any> {
-    return fetch(`http://api.tvmaze.com/shows?page=1`)
+  getShowPage(num): Promise<any> {
+    return fetch(`https://api.tvmaze.com/shows?page=${num}`)
       .then(r => r.json())
       .then(schedule => schedule.map((item) => {
         return item;
@@ -29,14 +29,14 @@ export class ShowService {
   // 
   // https://api.tvmaze.com/seasons/${id}/episodes
   getEpisodes(id): Promise<any> { 
-    return fetch(`http://api.tvmaze.com/shows/${id}/episodes`)
+    return fetch(`https://api.tvmaze.com/shows/${id}/episodes`)
       .then(r => r.json())
       .then(show => show);
   }
 
   // http://api.tvmaze.com/shows/1/episodebynumber?season=1&number=1
   getEpisode(id): Promise<any> {
-    return fetch(`http://api.tvmaze.com/episodes/${id}`)
+    return fetch(`https://api.tvmaze.com/episodes/${id}`)
       .then(r => r.json())
       .then(show => show);
   }
