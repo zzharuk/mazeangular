@@ -11,7 +11,7 @@ import { ShowService } from '../../services/show.service';
 })
 export class EpisodeComponent implements OnInit {
   episodeID:number;
-  episode:{};
+  episode;
   constructor(
     private ShowService: ShowService,
     private route: ActivatedRoute
