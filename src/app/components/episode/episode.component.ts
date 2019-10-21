@@ -15,7 +15,9 @@ export class EpisodeComponent implements OnInit {
   constructor(
     private ShowService: ShowService,
     private route: ActivatedRoute
-  ) { }
+  ) {
+    console.log(this.route.parent.params)
+  }
 
   ngOnInit() {
     this.route.paramMap.pipe(

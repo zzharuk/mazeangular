@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ScheduleService } from '../../services/schedule.service';
 import { ShowService } from '../../services/show.service';
 import { IShow } from '../../interfaces/ishow'
+import { Observable, from } from 'rxjs';
  
 
 
@@ -11,12 +12,10 @@ import { IShow } from '../../interfaces/ishow'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  schedules :[IShow];
-
+  schedules:any;
+  
   constructor(
     private ScheduleService: ScheduleService,
-    private ShowService: ShowService,
-    
   ) {
     this.ScheduleService.getSchedules().then((resp) => {
       this.schedules = resp.sort((a,b)=>{
@@ -24,10 +23,11 @@ export class HomeComponent implements OnInit {
       });
     });
     
+    
    }
 
   ngOnInit() {
-
+   
   }
 
 }

@@ -11,7 +11,8 @@ import { switchMap } from 'rxjs/operators';
 })
 export class SeasonComponent implements OnInit {
  season:any;
- id;
+ id:number;
+ season_num;
  episodesList: [];
   showID:number;
 
@@ -19,21 +20,23 @@ export class SeasonComponent implements OnInit {
     private ShowService: ShowService,
     private route: ActivatedRoute
     ) { 
+      
     }
 
   ngOnInit() {
-    
-    this.route.paramMap.pipe(
-      switchMap((params) =>{
-      console.log(params)
-        return of(params.get('id'))
-      })
-    ).subscribe(d => {
-      this.id = d;
+    this.route.params.subscribe(params => {
+      this.season_num = +params.id;
+      this.route.parent.params.subscribe(params => {
+        this.id = +params.id;
         this.ShowService.getEpisodes(this.id).then(resp => {
-          this.episodesList = resp;
-        });
+          this.episodesList = resp.filter((ep) => {
+            return ep.season === this.season_num;
+          });
+        })
+      });
+      
     });
+    
   }
 
 }

@@ -10,7 +10,7 @@
 				[routerLinkActive]="['active']" 
 				class="d-block schedule-item-list-title mt-0 mb-1"
 				>{{scheduleItem.show.name}}</a>
-			<a [routerLink]="['show', scheduleItem.show.id, 'season',scheduleItem.season, 'episode', scheduleItem.id]"
+			<a [routerLink]="['show', scheduleItem.show.id, 'season', scheduleItem.season, 'episode', scheduleItem.id]"
 				[routerLinkActiveOptions]="{ exact: true }"
 				[routerLinkActive]="['active']"
 			  class="d-block schedule-item-list-desc">{{scheduleItem.name}}</a>

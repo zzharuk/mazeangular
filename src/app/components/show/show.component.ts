@@ -39,8 +39,4 @@ export class ShowComponent implements OnInit {
     });
   }
 
-  navigateEnd(){
-    
-  }
-
 }

@@ -26,8 +26,10 @@ export class ShowService {
       .then(show => show);
   }
   // http://api.tvmaze.com/seasons/18326/episodes
+  // 
+  // https://api.tvmaze.com/seasons/${id}/episodes
   getEpisodes(id): Promise<any> { 
-    return fetch(`https://api.tvmaze.com/seasons/${id}/episodes`)
+    return fetch(`http://api.tvmaze.com/shows/${id}/episodes`)
       .then(r => r.json())
       .then(show => show);
   }
